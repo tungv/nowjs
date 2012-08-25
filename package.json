@@ -9,7 +9,8 @@
     },
     "main":"./server.js",
     "dependencies":{
-        "now":"*"
+        "now":"*",
+        "express" : "*"
     },
     "engine":{
         "node":">=0.8"
