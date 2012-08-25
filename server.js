@@ -1,18 +1,35 @@
-var http = require('http');
-var nowjs = require("now");
-var fs = require('fs');
-var util = require('util');
+// require modules
+var nowjs = require("now"),
+    express = require('express');
 
+// init express and http server
+var app = express();
+var httpServer = app.listen(3000);
 
-var server = require('http').createServer(function(req, res){
-    util.pump(fs.createReadStream('./public/index.html'),res);
+// config EXPRESS
+// all environments
+app.configure(function(){
+    app.use(express.static(__dirname + "/public"));
+    app.set("view engine", "jade");
+    app.use(express.bodyParser());
 });
-server.listen(3000);
 
-var everyone = nowjs.initialize(server);
+// init NOW
+var everyone = nowjs.initialize(httpServer);
 
-var data = [1,2,3,4,5];
+// ROUTES
+app.get('/:user', function(req, res){
+    res.render('user', {
+        title : req.params.user,
+        username: req.params.user
+    });
+});
 
-everyone.now.sum = function(callback) {
-    callback(this.now.a + this.now.b);
+app.get('/:user/:room', function(req, res) {
+    console.log(req.params);
+    res.render('game/index', req.params);
+});
+
+everyone.now.createRoom = function(callback) {
+
 };

@@ -10,7 +10,8 @@
     "main":"./server.js",
     "dependencies":{
         "now":"*",
-        "express" : "*"
+        "express" : "*",
+        "jade" : "*"
     },
     "engine":{
         "node":">=0.8"

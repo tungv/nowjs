@@ -1,0 +1,14 @@
+!!!
+html
+    head
+        title= title
+        script(src="/js/jquery.js")
+        script(src="/nowjs/now.js")
+    body
+        h1= 'Hello, ' + username
+        input(type="hidden",name="username",value=username)
+        #room-list
+        #actions
+            a#create-room(href="#") Create room
+
+        script(src="/js/script.js")
