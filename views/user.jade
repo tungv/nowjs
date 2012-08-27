@@ -2,10 +2,12 @@
 html
     head
         title= title
+        link(href="/css/style.css",  rel="stylesheet")
         script(src="/js/jquery.js")
         script(src="/nowjs/now.js")
     body
         h1= 'Hello, ' + username
+        #indicator.loading
         input(type="hidden",name="username",value=username)
         #room-list
         #actions

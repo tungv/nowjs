@@ -11,7 +11,8 @@
     "dependencies":{
         "now":"*",
         "express" : "*",
-        "jade" : "*"
+        "jade" : "*",
+        "lazy" : "*"
     },
     "engine":{
         "node":">=0.8"
